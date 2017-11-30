@@ -14,17 +14,9 @@
   </head>
   <body>
     <ul>
-
-
-      <?php foreach ($names as $name) : ?>
-        <li><?= $name ?></li>
+      <?php foreach($person as $feature => $val) : ?>
+        <li><strong><?= $feature; ?></strong> <?= $val; ?></li>
       <?php endforeach; ?>
-
-      <?php
-        foreach ($names as $name) {
-          echo "<li>$name</li>";
-      }
-      ?>
     </ul>
   </body>
 </html>
