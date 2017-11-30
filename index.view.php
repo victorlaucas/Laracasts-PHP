@@ -14,13 +14,6 @@
   </head>
   <body>
     <ul>
-      <?php foreach($task as $item => $val) : ?>
-        <li>
-          <strong><?= ucwords($item); ?></strong>: <?= $val; ?>
-        </li>
-      <?php endforeach; ?>
-
-      <!-- In order to have more control over what gets printed in boolean iterate through one at a time -->
 
       <li>
         <strong>Name: </strong> <?= $task['title']; ?>
@@ -35,7 +28,27 @@
       </li>
 
       <li>
-        <strong>Status: </strong> <?= $task['completed'] ? 'Complete' : 'Incomplete' ; ?>
+
+        <strong>Status: </strong>
+        <?php
+
+        if ($task['completed']) {
+          echo '&#9989;';
+        } else {
+          echo "Incomplete";
+        }
+
+        ?>
+
+        <!-- Short hand for if -->
+
+        <strong>Status: </strong>
+
+        <?php if ($task['completed']) : ?>
+          <span class="icon">&#9989;</span>
+        <?php else : ?>
+          <span class="icon">Incomplete</span>
+        <?php endif; ?>
       </li>
     </ul>
   </body>
