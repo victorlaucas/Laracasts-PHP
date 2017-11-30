@@ -14,9 +14,29 @@
   </head>
   <body>
     <ul>
-      <?php foreach($person as $feature => $val) : ?>
-        <li><strong><?= $feature; ?></strong> <?= $val; ?></li>
+      <?php foreach($task as $item => $val) : ?>
+        <li>
+          <strong><?= ucwords($item); ?></strong>: <?= $val; ?>
+        </li>
       <?php endforeach; ?>
+
+      <!-- In order to have more control over what gets printed in boolean iterate through one at a time -->
+
+      <li>
+        <strong>Name: </strong> <?= $task['title']; ?>
+      </li>      
+
+      <li>
+        <strong>Due Date: </strong> <?= $task['due']; ?>
+      </li>
+
+      <li>
+        <strong>Person Responsible: </strong> <?= $task['assigned_to']; ?>
+      </li>
+
+      <li>
+        <strong>Status: </strong> <?= $task['completed'] ? 'Complete' : 'Incomplete' ; ?>
+      </li>
     </ul>
   </body>
 </html>
