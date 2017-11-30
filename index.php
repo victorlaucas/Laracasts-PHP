@@ -9,5 +9,5 @@ $name = 'Victor Laucas';
 // example of string interpolation
 echo "Hello $name";
 
-// example of concating
+// example of concatenation 
 echo 'Hello,' . $name;
