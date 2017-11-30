@@ -1,0 +1,1 @@
+This is a way of me documenting my progress through the Laracasts PHP video series. 
