@@ -1,33 +1,23 @@
 <?php 
 
-require 'function.php';
+require 'Task.php';
 
-class Task {
-  public $description;
-
-  public $completed = false;
-
-  public function __construct($description){
-    // Auto triggered on instantiation 
-    $this->description = $description;
-  }
-
-  public function isComplete(){
-    return $this->completed;
-  }
-
-  public function complete(){
-    $this->completed = true;
-  }
+// Try to connect to database
+try {
+  $pdo = new PDO('mysql:host=127.0.0.1;dbname=mytodo', 'root', '');  
+} catch (PDOExeption $e) {
+  die($e->getMessage());
 }
 
-$tasks = [
-  new Task('Go to the store'),
-  new Task('Finish my screencast'),
-  new Task('Clean my room')
-];
+// Prepare sql query 
+$statement = $pdo->prepare('select * from todos');
 
-$tasks[0]->complete();
+// Execute sql query
+$statement->execute();
+
+// Fetch all results of this query 
+$tasks = $statement->fetchAll(PDO::FETCH_CLASS, 'Task');
+
 
 
 require 'index.view.php';
