@@ -14,18 +14,32 @@
   </head>
   <body>
     <ul>
+      <?php /* foreach ($tasks as $task) : ?>
+      Long sytax
+        <li>
+          <?php if ($task->completed) : ?>
+            <strike>
+          <?php endif; ?>
 
-      <li>
-        <strong>Name: </strong> <?= $task['title']; ?>
-      </li>      
+          <?= $task->description; ?> 
 
-      <li>
-        <strong>Due Date: </strong> <?= $task['due']; ?>
-      </li>
+          <?php if ($task->completed) : ?>
+            </strike>
+          <?php endif; ?>
+        </li>
+      <?php endforeach; */?> 
 
-      <li>
-        <strong>Person Responsible: </strong> <?= $task['assigned_to']; ?>
-      </li>
-    </ul>
+      <!-- Shorthand way to do same code as above -->
+
+      <?php foreach ($tasks as $task) : ?>
+        <li>
+          <?php if ($task->completed) : ?>
+            <strike><?= $task->description; ?> </strike>
+          <?php else: ?>
+            <?= $task->description; ?>
+          <?php endif; ?>
+        </li>
+      <?php endforeach; ?>
+    </ul>  
   </body>
 </html>

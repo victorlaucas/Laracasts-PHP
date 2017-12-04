@@ -3,9 +3,9 @@
 require 'function.php';
 
 class Task {
-  protected $description;
+  public $description;
 
-  protected $completed = false;
+  public $completed = false;
 
   public function __construct($description){
     // Auto triggered on instantiation 
@@ -21,13 +21,13 @@ class Task {
   }
 }
 
-$task = new Task('Go to the store');
+$tasks = [
+  new Task('Go to the store'),
+  new Task('Finish my screencast'),
+  new Task('Clean my room')
+];
 
-$task->complete();
-
-var_dump($task->isComplete());
+$tasks[0]->complete();
 
 
-
-
-// require 'index.view.php';
+require 'index.view.php';
